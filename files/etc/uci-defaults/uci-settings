@@ -1,6 +1,6 @@
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
-uci set system.@system[0].hostname='link-to-the-future'
+uci set system.@system[0].hostname='openwrt'
 uci set system.ntp.use_dhcp='0'
 uci commit system
 
@@ -11,8 +11,8 @@ uci set network.wan.peerdns='0'
 uci add_list network.wan.dns='::1'
 uci set network.wan.proto='pppoe'
 uci set network.wan.ipv6='auto'
-uci set network.lan.igmp_snooping='1'
-network.@device[0].igmp_snooping='1'
+uci set network.lan.igmp_snooping='0'
+network.@device[0].igmp_snooping='0'
 
 # Enable wifi by default
 uci set wireless.radio0.country='PA'
@@ -21,12 +21,12 @@ uci set wireless.radio0.disabled=0
 uci set wireless.radio1.disabled=0
 uci set wireless.radio1.htmode='HE40'
 uci set wireless.radio0.htmode='HE160'
-uci set wireless.default_radio0.ssid='Link to the FUTURE'
-uci set wireless.default_radio1.ssid='Xiaomi_391F'
+uci set wireless.default_radio0.ssid='Xiaomi_5G'
+uci set wireless.default_radio1.ssid='Xiaomi_2G'
 uci set wireless.default_radio1.encryption='psk-mixed'
-uci set wireless.default_radio1.key='1qaz@WSX'
-uci set wireless.default_radio0.encryption='sae'
-uci set wireless.default_radio0.key='1qaz@WSX'
+uci set wireless.default_radio1.key='@551551#'
+uci set wireless.default_radio0.encryption='psk-mixed'
+uci set wireless.default_radio0.key='@551551#'
 uci set wireless.radio1.txpower='17'
 uci set wireless.radio0.txpower='27'
 uci set wireless.radio0.channel='44'
@@ -91,14 +91,14 @@ uci set network.iot.proto='none'
 
 uci set network.iot.proto='static'
 uci add_list network.iot.ipaddr='192.168.3.1/24'
-uci set network.iot.igmp_snooping='1'
+uci set network.iot.igmp_snooping='0'
 
 # /etc/config/dhcp
 uci set dhcp.iot=dhcp
 uci set dhcp.iot.interface='iot'
 uci set dhcp.iot.start='100'
 uci set dhcp.iot.limit='150'
-uci set dhcp.iot.leasetime='12h'
+uci set dhcp.iot.leasetime='192h'
 
 uci set dhcp.iot.dhcpv4='server'
 uci set dhcp.iot.domain='iot'
