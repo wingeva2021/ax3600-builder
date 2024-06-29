@@ -46,40 +46,13 @@ uci set wireless.default_radio1.multicast_to_unicast_all='1'
 uci set wireless.radio1.noscan=1
 uci set wireless.radio1.channel='8'
 
-uci set dhcp.odhcpd.leasetrigger='/usr/lib/unbound/odhcpd.sh'
-uci set unbound.ub_main.dhcp_link='odhcpd'
-uci set unbound.ub_main.dhcp4_slaac6='1'
-uci set unbound.ub_main.protocol='ip6_prefer'
-uci del unbound.ub_main.query_minimize
-uci del unbound.ub_main.query_min_strict
 
-uci del unbound.auth_icann
-uci del unbound.fwd_isp
-uci del unbound.fwd_google
-uci del unbound.fwd_cloudflare
-
-uci add unbound zone # =cfg04dc81
-uci set unbound.@zone[-1].fallback='0'
-uci set unbound.@zone[-1].enabled='1'
-uci set unbound.@zone[-1].zone_type='forward_zone'
-uci set unbound.@zone[-1].dns_assist='unprotected-loop'
-uci add_list unbound.@zone[-1].server='::1'
-uci add_list unbound.@zone[-1].zone_name='.'
-uci set unbound.@zone[-1].port='5335'
-uci set unbound.ub_main.unbound_control='1'
-uci set unbound.ub_main.resource='medium'
-uci set unbound.ub_main.extended_stats='1'
 
 uci set dhcp.odhcpd.maindhcp='1'
 
 uci del firewall.@defaults[0].flow_offloading='0'
 
-uci del nginx._redirect2ssl
-uci del nginx._lan.listen
-uci add_list nginx._lan.listen='443 ssl default_server'
-uci add_list nginx._lan.listen='[::]:443 ssl default_server'
-uci add_list nginx._lan.listen='80 default_server'
-uci add_list nginx._lan.listen='[::]:80 default_server' 
+
 
 
 uci commit
@@ -131,12 +104,4 @@ uci set wireless.default_radio1.network='iot'
 
 uci commit
 
-uci del unbound.ub_main.iface_lan
-uci add_list unbound.ub_main.iface_lan='iot'
-uci add_list unbound.ub_main.iface_lan='lan'
-uci del unbound.ub_main.iface_trig
-uci add_list unbound.ub_main.iface_trig='iot'
-uci add_list unbound.ub_main.iface_trig='lan'
-uci add_list unbound.ub_main.iface_trig='wan'
 
-uci commit
