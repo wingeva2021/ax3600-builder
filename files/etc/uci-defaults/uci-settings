@@ -4,7 +4,7 @@ uci set system.@system[0].hostname='openwrt'
 uci set system.ntp.use_dhcp='0'
 uci commit system
 
-uci set network.globals.ula_prefix='fd0f:7a7c:a8c9::/48'
+uci set network.globals.ula_prefix=''
 uci del network.wan6
 uci set firewall.@zone[1].network='wan'
 uci set network.wan.peerdns='0'
