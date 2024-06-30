@@ -250,6 +250,8 @@ CONFIG_MOLD=y
 # CONFIG_OPENSSL_ENGINE is not set
 CONFIG_PACKAGE_kmod-libphy=y
 CONFIG_PACKAGE_kmod-nls-base=y
+CONFIG_PACKAGE_uhttpd=y
+CONFIG_PACKAGE_uhttpd-mod-ubus=y
 CONFIG_USE_MOLD=y
 #
 CONFIG_PACKAGE_kmod-lib-lzo=y
