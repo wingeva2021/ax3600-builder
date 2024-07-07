@@ -5,7 +5,7 @@ uci set system.ntp.use_dhcp='0'
 uci commit system
 
 uci set network.globals.ula_prefix=''
-uci del network.wan6
+#uci del network.wan6
 uci set firewall.@zone[1].network='wan'
 uci set network.wan.peerdns='0'
 uci add_list network.wan.dns='::1'
