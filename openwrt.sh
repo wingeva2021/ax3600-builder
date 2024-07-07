@@ -12,7 +12,7 @@ grep "system.ntp.server" package/base-files/files/bin/config_generate
 sed -i "s#git.openwrt.org/feed#github.com/openwrt#g" feeds.conf.default
 sed -i "s#git.openwrt.org/project#github.com/openwrt#g" feeds.conf.default
 
-echo "src-git openclash https://github.com/vernesong/OpenClash.git" >> feeds.conf.default
+echo "src-git luci_openclash https://github.com/vernesong/OpenClash.git" >> feeds.conf.default
 
 cat feeds.conf.default
 
