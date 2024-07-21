@@ -1,3 +1,8 @@
+# Set pbuf options
+set pbuf.opt.auto_scale='on'
+set pbuf.opt.memory_profile='1gb'
+set pbuf.opt.scaling_governor='performance'
+
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci set system.@system[0].hostname='openwrt'
